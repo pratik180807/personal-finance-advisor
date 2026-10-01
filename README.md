@@ -68,7 +68,7 @@ Managing personal finances often involves manual spreadsheets, delayed budgeting
 - **Python 3.12+**
 - **Flask** & **Flask-CORS**
 - **Gunicorn** (production WSGI server)
-- **Flask-SQLAlchemy** with **psycopg2-binary** (PostgreSQL on Render, SQLite locally)
+- **Flask-SQLAlchemy** with **psycopg[binary]** (PostgreSQL on Render, SQLite locally)
 - **Flask-JWT-Extended** for token authentication
 - **Werkzeug** for secure password hashing
 - **ReportLab** for server-side PDF generation
@@ -116,7 +116,7 @@ personal-finance-advisor/
 │   ├── config.py                 # Application configuration & env loader
 │   ├── run.py                    # Backend server entrypoint
 │   ├── seed.py                   # Realistic Indian test data seeder
-│   ├── requirements.txt          # Python dependencies (includes gunicorn & psycopg2-binary)
+│   ├── requirements.txt          # Python dependencies (includes gunicorn & psycopg[binary])
 │   └── .env.example              # Template environment variables
 │
 ├── frontend/
@@ -152,7 +152,7 @@ The application is structured to support both local development and production d
 1. **Local Development (Default)**:
    - When `DATABASE_URL` is omitted or empty, the application automatically creates and uses a local SQLite database: `backend/finance_advisor.db`.
 2. **Production Deployment (Render / PostgreSQL)**:
-   - When `DATABASE_URL` is set, the application automatically connects to PostgreSQL via `psycopg2-binary`.
+   - When `DATABASE_URL` is set, the application automatically connects to PostgreSQL via `psycopg[binary]`.
    - Any Render/Heroku connection strings starting with `postgres://` are automatically normalized to SQLAlchemy's required `postgresql://` protocol.
 3. **Automatic Schema & Demo Seeding**:
    - `db.create_all()` runs on startup.
